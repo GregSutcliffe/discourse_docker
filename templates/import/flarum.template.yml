@@ -75,8 +75,8 @@ hooks:
           chown discourse -R /shared/import/data
 
           # Allow connection as root user without password
-          mysql -uroot -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user = 'root' AND plugin = 'unix_socket'"
-          mysql -uroot -e "FLUSH PRIVILEGES"
+          #mysql -uroot -e "UPDATE mysql.user SET plugin = 'mysql_native_password' WHERE user = 'root' AND plugin = 'unix_socket'"
+          #mysql -uroot -e "FLUSH PRIVILEGES"
 
           if [ -f "/shared/import/data/flarum_mysql.sql" ]; then
             if [ -f "/shared/import/mysql/imported" ] && ! sha256sum --check /shared/import/mysql/imported &>/dev/null ; then

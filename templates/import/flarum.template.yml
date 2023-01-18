@@ -109,6 +109,7 @@ hooks:
           export FLARUM_USER='discourse'
           export FLARUM_PW='discoursepw'
           export FLARUM_DB='flarum'
+          export ATTACHMENTS_BASE_DIR='/shared/import/data/import_uploads'
 
     - exec:
         cd: $home

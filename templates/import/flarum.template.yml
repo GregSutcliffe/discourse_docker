@@ -98,7 +98,17 @@ hooks:
 
           cd $home
           echo "MySQL ready. Execute this to perform the import:"
-          echo "su discourse -c 'bundle exec ruby /shared/import/data/flarum_import.rb'"
+          echo "cp /shared/import/data/flarum_import.rb script/import_scripts/flarum_import.rb"
+          echo "source /usr/local/bin/set_flarum_vars.sh"
+          echo "su discourse -c 'bundle exec ruby script/import_scripts/flarum_import.rb"
+
+    - file:
+        path: /usr/local/bin/set_flarum_vars.sh
+        contents: |
+          export FLARUM_HOST='localhost'
+          export FLARUM_USER='discourse'
+          export FLARUM_PW='discoursepw'
+          export FLARUM_DB='flarum'
 
     - exec:
         cd: $home
